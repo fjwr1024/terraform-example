@@ -11,4 +11,13 @@ resource "aws_instance" "hello-world" {
   tags = {
     Name = "HelloWorld"
   }
+
+# nginxをインストールし、EC2を再作成
+user_data_replace_on_change = true
+
+  user_data = <<EOF
+#!/bin/bash
+amazon-linux-extras install -y nginx1.12
+systemctl start nginx
+EOF
 }
