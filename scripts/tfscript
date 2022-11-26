@@ -5,3 +5,6 @@ terraform fmt
 terraform state list
 terraform state show aws_instance.app_server
 terraform state mv <SOURCE> <DESTINATION>
+terraform import <ADDRESS> <ID>
+terraform state rm <ADDRESS>
+terraform refresh 
