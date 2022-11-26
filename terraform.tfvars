@@ -1,0 +1,2 @@
+project     = "projectname"
+environment = "dev"
