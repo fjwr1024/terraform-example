@@ -9,6 +9,13 @@ terraform {
       version = "~> 3.0"
     }
   }
+
+  backend "s3" {
+    bucket  = "bucketname"
+    key     = "tastylog-dev.tfstate"
+    region  = "region"
+    profile = "terraformuserprofile"
+  }
 }
 
 # ---------------------------------------------

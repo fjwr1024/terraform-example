@@ -1,0 +1,7 @@
+terraform plan
+terraform apply
+terraform apply -auto-approve
+terraform fmt
+terraform state list
+terraform state show aws_instance.app_server
+terraform state mv <SOURCE> <DESTINATION>
