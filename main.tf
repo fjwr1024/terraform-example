@@ -1,23 +1,31 @@
-provider "aws" {
-  profile = "terraform-practice"
-  region  = "hoeghogeregion"
+# ---------------------------------------------
+# Terraform configuration
+# ---------------------------------------------
+terraform {
+  required_version = ">=0.13"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
 }
 
-resource "aws_instance" "hello-world" {
-  # ec2のAMI ID を下記に記載する
-  ami           = "hogehogehogehoge"
-  instance_type = "t2.micro"
-  
-  tags = {
-    Name = "HelloWorld"
-  }
+# ---------------------------------------------
+# Provider
+# ---------------------------------------------
+provider "aws" {
+  profile = "profile_name"
+  region  = "region_name"
+}
 
-# nginxをインストールし、EC2を再作成
-user_data_replace_on_change = true
+# ---------------------------------------------
+# Variables
+# ---------------------------------------------
+variable "project" {
+  type = string
+}
 
-  user_data = <<EOF
-#!/bin/bash
-amazon-linux-extras install -y nginx1.12
-systemctl start nginx
-EOF
+variable "environment" {
+  type = string
 }
